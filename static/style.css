@@ -1,0 +1,43 @@
+/* style.css */
+
+/* Styles for the input and button */
+#input-city {
+  margin-right: 10px;
+}
+.submit-button {
+  padding: 5px 10px;
+}
+
+/* Styles for the cards */
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+/* Styles for the card */
+.card {
+  width: 200px;
+  height: 200px;
+  background-color: lightgray;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+/* Styles for the card elements */
+.degrees {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.state {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.city {
+  font-size: 16px;
+  font-weight: bold;
+}
