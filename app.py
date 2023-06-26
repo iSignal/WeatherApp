@@ -1,13 +1,16 @@
+import os
+import sys
 from flask import Flask, render_template, request, redirect, flash
 from requests import get
 from flask_sqlalchemy import SQLAlchemy
-import sys
+from dotenv import load_dotenv
 
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///weather.db'  # for database
 app.config['SECRET_KEY'] = 'So-Seckrekt'  # for flash messages
 db = SQLAlchemy(app)
+load_dotenv()
 
 
 class City(db.Model):
@@ -19,7 +22,7 @@ class City(db.Model):
 def index():
     cities = City.query.all()
     weather_info_list = []
-    api_key = '3e92ae34eb4da94c70cc1a85fecc58a6'
+    api_key = os.getenv('API_KEY')
     for city in cities:
         response = get(f'http://api.openweathermap.org/data/2.5/weather?q={city.name}&appid={api_key}')
         if response.status_code == 200:
