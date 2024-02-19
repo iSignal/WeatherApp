@@ -14,29 +14,16 @@
     </div>
 
     <div class="cards">
-        {% if weather %}
-        {% for city in weather %}
+        {% for city in cities %}
         <div class="card">
-            <div class="degrees">{{ city.temp }}°C</div>
-            <div class="state">{{ city.state }}</div>
-            <div class="city">{{ city.city }}</div>
+            <div class="city">{{city.name}}</div>
             <form action="/delete/{{city.id}}" method="POST">
                 <button class="delete-button">Delete</button>
             </form>
         </div>
         {% endfor %}
-        {% endif %}
     </div>
 
-    {% with messages = get_flashed_messages() %}
-      {% if messages %}
-        <ul class=flashes>
-        {% for message in messages %}
-          <li>{{ message }}</li>
-        {% endfor %}
-        </ul>
-      {% endif %}
-    {% endwith %}
 
 </body>
 </html>
